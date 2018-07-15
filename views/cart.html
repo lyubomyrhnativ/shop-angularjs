@@ -1,0 +1,48 @@
+<p ng-hide='cart.length>0' class='text-center text-danger'>В корзині відсутні товари!</p>
+
+<p class='text-right m-2'>
+<button class='btn btn-danger' ng-click="ShowProducts()">
+	<i class="fas fa-window-close fa-2x"></i>
+</button>
+</p>
+
+<table class="table table-bordered table-strizerd" ng-show='cart.length>0'>
+	<tr>
+		<td>назва товару</td>
+		<td> кількість товару</td>
+		<td>ціна</td>
+		<td>видалити</td>
+	</tr>
+	<tr ng-repeat='item in cart'>
+	<td>{{item.name}} {{item.model}}</td>
+	<td><button class="btn btn-success" ng-click="plusCount(item) ">+</button>
+		{{item.newcount}}
+		<button class="btn btn-success" ng-click="minusCount(item)">-</button>
+	</td>
+	<td>{{item.newprice}}</td>
+	<td><button class="btn btn-danger" ng-click="deleteProductCart(item)">Видалити</button></td>	
+	</tr>
+</table>
+
+<p ng-show='cart.length>0'>Загальна Сума: {{sumTotal()}} грн</p>
+
+<div class='row' ng-show='cart.length>0'>
+	<form ng-model='novalidate' name="myform" 
+	class='col-sm-6 offset-sm-3 bg-success text-white'>
+	<div class="form-group">
+	
+	<label for="name">Name</label>
+	<input class="form-control" type="text" name="name" required ng-model="neworder.name"
+	value="{{fuser.name}}">
+	
+	<label for="phone">Phone</label>
+	<input class="form-control" type="text" name="model" required ng-model="neworder.phone">
+	
+	<label for="Price1">Email</label>
+	<input class="form-control" type="text" name="price" required ng-model="neworder.email">
+	</form>
+	<button class='col-sm-4 offset-sm-4 btn mt-3' ng-click='sendOrder(neworder)'>
+	Оформити замовлення
+</button>
+</div>
+

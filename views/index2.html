@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+	<meta charset="UTF-8">
+	<title>flexboxShop</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width">
+	<script src="angular.js"></script>
+
+	
+	<script src='main.js'></script>
+	<script src='products.js'></script>
+	<script src='category.js'></script>
+	<script src='cart.js'></script>
+
+</head>
+<body ng-controller="mainCtrl">
+<section id="site" ng-controller="productCtrl">
+	<div ng-controler="CartCtrl">
+	<header class="hf" ng-controller="CategoryCtrl">
+		<h1>Товари</h1>
+		<section class="sort">
+			<article class="item-sort">
+				<label>Категорія</label>
+				<select ng-model="selectCategory" ng-change='loadProducts(selectCategory)'> 
+					<option ng-repeat="item in category">{{item.name}}</option>
+					
+				</select>
+			</article>
+			<article class="item-sort">
+				<label>Сортування</label>
+				<select ng-model='sortSelect' ng-change='sortMas(sortSelect)'>
+					<option>По спаданню</option>
+					<option>По зростанню</option>
+				</select>
+			</article>
+		</section>
+		<button ng-click="showCart()">Корзина</button>
+	</header>
+	<main ng-include="current.view">
+		
+	</main>
+	</div>
+	<footer class="hf">
+		footer
+	</footer>
+</section>
+<!-- 	<div ng-controller='Ctrl2'>
+		{{value1}}
+	</div>
+	<div ng-controller='Ctrl1'>
+		{{value1}}
+	</div> -->
+	
+</body>
+</html>

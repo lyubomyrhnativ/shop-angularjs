@@ -1,0 +1,21 @@
+.navbar-brand{
+	font-size:22px;
+	font-weight: bold;
+	color:white!important;
+}
+.card-heading{
+	padding: 10px 10px;
+}
+.card-body{
+	background-color:lightblue;
+	padding: 5px 5px;
+}
+.active{
+	background-color: #17a2b8!important;
+}
+.list-group .list-group-item{
+	cursor:pointer;
+}
+.orange{
+	background-color: orange;
+}

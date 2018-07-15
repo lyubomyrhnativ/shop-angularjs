@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='mainApp'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Admin</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/adminstyle.css">
+	<script src="angular.js"></script>
+	<script src="modules/cart.js"></script>
+	<script src="modules/products.js"></script>
+	
+	<script src="modules/category.js"></script>
+	
+	<script src="modules/main.js"></script>
+</head>
+<body ng-controller='mainCtrl' ng-init='ShowAdminProducts()'>
+	<div class="container-fluid" ng-controller='productCtrl'>
+		<div class="card bg-info" ng-controller='CategoryCtrl'>
+			<div class="card-header">
+				<div class="row">
+					<div class='col col-sm-8 d-flex align-items-center'>
+						<i class="fab fa-angular fa-5x"></i>
+						<a class="navbar-brand" href="#">
+						dminPanel</a>
+					</div>
+					<div class='col col-sm-4 d-flex align-items-center justify-content-end'>
+						<a class='btn btn-primary' href='/'>
+							<i class="fab fa-shopware"></i> Shop
+						</a>	
+					</div>	
+				</div>
+			</div>
+			<div class="card-body" ng-controller='CartCtrl'>
+			 	<div class="row">
+			 		<div class="col-sm-2">
+			 			<ul class="list-group">
+							<li ng-repeat='item in adminMenu'
+							ng-click='setCurrentAdminMenu(item)'
+							class='list-group-item'
+							ng-class={active:item==currentAdminMenu}>
+							{{item}}
+							</li>
+						</ul>
+			 		</div>
+			 		<div class="col-sm-10">
+			 			<div class="card bg-info">
+			 				<div class="card-heading">
+			 					<div class="row">
+			 						<div class="col-sm-10 text-white">
+			 							{{current.header}}
+			 						</div>
+			 						<div class='col-sm-2 d-flex justify-content-end'>
+			 							<button class='btn btn-sm btn-success'
+			 								ng-show='btnAddProduct' 
+			 								ng-click="editOrCreate()">
+			 								<i class="fa fa-plus"></i>
+			 								addProduct
+			 							</button>
+			 						</div>
+			 					</div>
+			 					
+			 				</div>
+			 				<div class="card-body" ng-include='current.view'>
+			 					
+			 				</div>
+			 			</div>
+			 		</div>
+			 	</div>
+			</div>
+	    </div>
+	</div>
+</body>
+</html>
+<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+			

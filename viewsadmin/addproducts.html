@@ -1,0 +1,47 @@
+<div class='row'>
+	<form ng-model='novalidate' name="myform" 
+	class='col-sm-6 offset-sm-3 bg-info text-white'>
+	<div class="form-group">
+	<label for="name">Name</label>
+	<input class="form-control" type="text" name="name" required  ng-model="newproduct.name">
+	<!-- <span ng-show="myform.name.$error.required  && myform.name.$dirty" >Поле не повинне бути пустим</span> -->
+	<label for="Model1">Model</label>
+	<input class="form-control" type="text" name="model" required ng-model="newproduct.model">
+	<label for="Price1">Price</label>
+	<input class="form-control" type="text" name="price" required ng-model="newproduct.price">
+	<label for="Category1">Category</label>
+	<select class="form-control"  ng-model='newproduct.category' required>
+		<option ng-repeat='item in onlyCategory'>{{item.name}}</option>
+	</select>
+	<label for="Count1">Count</label>
+	<input class="form-control" type="text" name="count" required ng-model="newproduct.count">
+	<label for="Path1">Path</label>
+	<input class="form-control" type="text" name="path" required ng-model="newproduct.path">
+	</div>
+	</form>
+</div>
+
+<div class="row">
+	<div class="card col-sm-6 offset-sm-3 bg-info">
+	<div class="card-header">
+		<form method="post" enctype="multipart/form-data" action="/uploadfile" 
+		target="result" class="d-flex justify-content-between">
+			<input type="file" name="upl" class='btn btn-success'>
+			<input type="submit" value="uploadfile" class="btn btn-success">
+		</form>
+
+	</div>
+	</div>
+</div>
+<div class="row">
+	<div class="card card col-sm-6 offset-sm-3 bg-info">
+		<div class="card-header d-flex justify-content-between">
+			<button class='btn btn-success' ng-click='updateOrSave(newproduct)' >{{btnproduct}}
+			</button>
+			<button class='btn btn-danger' ng-click='ShowAdminProducts()' >Cancel
+			</button>
+		</div>
+	</div>
+</div>
+
+<iframe  name='result' current-item hidden ></iframe>

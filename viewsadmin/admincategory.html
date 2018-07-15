@@ -1,0 +1,47 @@
+<div class="row">
+<div class="col-sm-6">
+<div class='row'>
+	<form ng-model='novalidate' name="myform" 
+	class='col-sm-6 offset-sm-6 bg-info text-white'>
+	<div class="form-group">
+	<label for="name">Name</label>
+	<input class="form-control" type="text" name="name" required  ng-model="newcategory.name">	
+	</div>
+	</form>
+</div>
+<div class="row">
+	<div class="card card col-sm-6 offset-sm-6 bg-info">
+		<div class="card-header d-flex justify-content-between">
+			<button class='btn btn-success' ng-click='addUpdateCategory(newcategory)' >{{btncategory}}
+			</button>
+			<button class='btn btn-danger' ng-click='cancelCategory()' >Cancel
+			</button>
+		</div>
+	</div>
+</div>	
+</div>
+
+	<div class="col-sm-6">
+		<div class="row">
+			<table 
+			class='table table-bordered table-striped col-sm-6 offset-sm-1'>
+				<tr>
+					<th>Назва</th>
+				</tr>
+				<tr ng-repeat='item in onlyCategory'>
+					<td>{{item.name}}</td>
+					<td class='text-center'>
+					<button class='btn btn-sm btn-danger' ng-click='deleteCategory(item)'>
+						<i class="fas fa-minus-circle"></i>
+					</button>
+					</td>
+					<td class='text-center'>
+					<button class='btn btn-sm btn-info' ng-click='updateCategory($event,item)'>
+					<i class="fa fa-edit"></i>
+					</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

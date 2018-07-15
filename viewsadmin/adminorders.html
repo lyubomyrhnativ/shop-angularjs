@@ -1,0 +1,34 @@
+<p ng-hide='orders.length>0' class='text-danger text-center'>
+Відсутні незакриті замовлення!
+</p>
+
+<div ng-repeat='item in orders'>
+<div class='row font-weight-bold'>
+	<div class='col-sm-1'>
+		<div>№ {{$index+1}}</div>
+	</div>
+	<div class='col-sm-7' >
+		<div>Замовник: {{item.name}}</div>
+		<div>Телефон: {{item.phone}}</div>
+		<div>Пошта: {{item.email}}</div>
+	</div>
+	<div class='col-sm-4 text-right'>
+		<div>Вартість замовлення: <span class='text-danger'>{{item.total}} грн.</span></div>
+		<div class='mt-1'><button class='btn btn-danger' ng-click='closeOrder(item)'>
+			<i class="far fa-times-circle"></i>
+			Close
+			</button>
+		</div>
+	</div>
+</div>
+	<table class='table table-bordered table-striped'>
+		<tr ng-repeat='subitem in item.cart'>
+			<td><i class="fab fa-elementor"></i></td>
+		    <td>{{subitem.name}}</td>
+		    <td>{{subitem.model}}</td>
+		    <td>{{subitem.category}}</td>
+		    <td>{{subitem.newcount}}</td>
+		    <td>{{subitem.newprice}} грн.</td>
+		</tr>
+	</table>
+</div>

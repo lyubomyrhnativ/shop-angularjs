@@ -1,0 +1,30 @@
+<table class='table table-bordered table-striped'>
+	<tr>
+		<th>Назва</th>
+		<th>Модель</th>
+		<th>Категорія</th>
+		<th>Кількість</th>
+		<th>Ціна</th>
+		<th>Фото</th>
+	</tr>
+	<tr ng-repeat='item in products'>
+		<td>{{item.name}}</td>
+		<td>{{item.model}}</td>
+		<td>{{item.category}}</td>
+		<td>{{item.count}}</td>
+		<td>{{item.price}}</td>
+		<td>{{item.path}}</td>
+		<td class='text-center'>
+			<button class='btn btn-sm btn-danger' ng-click='deleteProduct(item)'>
+				<i class="fas fa-minus-circle"></i>
+			</button>
+		</td>
+		<td class='text-center'>
+			<button class='btn btn-sm btn-info' ng-click='editOrCreate(item)'>
+				<i class="fa fa-edit"></i>
+			</button>
+		</td>
+		
+
+	</tr>
+</table>

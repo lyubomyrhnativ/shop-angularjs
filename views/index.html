@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+	<meta charset="UTF-8">
+	<title>flexboxShop</title>
+	
+	<meta name="viewport" content="width=device-width">
+	<script src="angular.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script src='modules/products.js'></script>
+	<script src='modules/category.js'></script>
+	<script src='modules/cart.js'></script>
+	<script src='modules/main.js'></script>
+	
+
+</head>
+<body ng-controller="mainCtrl">
+<section id="site" ng-controller="productCtrl">
+	<div ng-controller="CartCtrl">
+	<header class="hf" ng-controller="CategoryCtrl">
+		<section class='login bg-success'>
+			<div class="logindata" ng-show='fvisible'>	
+				<img src="{{fuser.photos}}" alt='NoFhoto'/>
+				<div class="namemail">
+						<div>{{fuser.name}}</div>
+						<div>{{fuser.email}}</div>
+				</div>
+			</div>
+			<div class='loginbtn'>
+				<form class="inputbtn" ng-hide='fvisible' method='post' action='/loginnew'>
+					<label>login </label>
+					<input type="text" class="input-sm" name='username'>
+					<label>password </label>
+					<input type="text" class='input-sm' name='password'>
+					<button class='btn btn-info' ng-hide='fvisible' type='submit'>
+							<i class="fas fa-sign-in-alt"></i> Input
+					</button>
+				</form>
+				
+				<a href='/auth/facebook' class='btn btn-info' ng-hide='fvisible'>
+					<i class="fab fa-facebook-square"></i> Facebook
+				</a>
+				<button class='btn btn-danger' ng-show='fvisible' ng-click='logOutUser()'>
+					<i class="fas fa-sign-out-alt"></i> LogOut
+				</button>
+			</div>
+			
+			
+		</section>
+		<section class='logo'>
+			<i class="fab fa-angular fa-5x"></i>
+			<h1> ngularShop</h1>
+		</section>
+		
+		<section class="sort">
+			<article class="item-sort">
+				<label>Категорія</label>
+				<select ng-model="selectCategory" ng-change='loadProducts(selectCategory,sortSelect)'> 
+					<option ng-repeat="item in category">{{item.name}}</option>
+					
+				</select>
+			</article>
+			<article class="item-sort">
+				<label>Сортування</label>
+				<select ng-model='sortSelect' ng-change='loadProducts(selectCategory,sortSelect)'>
+					<option>По спаданню</option>
+					<option>По зростанню</option>
+				</select>
+			</article>
+		</section>
+		<button class='btn btn-success' ng-click="showCart()"><i class="fa fa-shopping-cart"></i>  Корзина <span ng-show='cart.length>0' class="badge">{{cart.length}}</span></button>
+	</header>
+	<main ng-include="current.view">
+		
+	</main>
+	</div>
+	<footer class="hf">
+		footer
+	</footer>
+</section>
+<!-- 	<div ng-controller='Ctrl2'>
+		{{value1}}
+	</div>
+	<div ng-controller='Ctrl1'>
+		{{value1}}
+	</div> -->
+	
+</body>
+</html>
