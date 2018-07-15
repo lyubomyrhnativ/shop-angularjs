@@ -4,7 +4,7 @@ tls: { rejectUnauthorized: false },
 port: 465,
 secure: true, // true for 465, false for other ports
 auth:  {
-        user: 'securesally@gmail.com', // generated ethereal user
+        user: 'vitang.developer@gmail.com', // generated ethereal user
         pass: 'ilrrsyhkvwxkgjcw' // generated ethereal password
     }
 }
