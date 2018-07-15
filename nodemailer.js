@@ -5,7 +5,7 @@ port: 465,
 secure: true, // true for 465, false for other ports
 auth:  {
         user: 'securesally@gmail.com', // generated ethereal user
-        pass: 'sdetnkkkeyvmxwvk' // generated ethereal password
+        pass: 'ilrrsyhkvwxkgjcw' // generated ethereal password
     }
 }
 module.exports=transport;
